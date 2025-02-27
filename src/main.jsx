@@ -5,9 +5,9 @@ import { BrowserRouter } from "react-router-dom";
 import DataContext from "./ContaxtApi/DataContext";
 
 createRoot(document.getElementById("root")).render(
-  <DataContext>
-    <BrowserRouter>
-      <App/>
-    </BrowserRouter>
-  </DataContext>
+  <BrowserRouter>
+    <DataContext>
+      <App />
+    </DataContext>
+  </BrowserRouter>
 );

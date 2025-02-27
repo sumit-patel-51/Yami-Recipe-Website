@@ -39,7 +39,7 @@ function StartHere() {
         item.tags[0].toLowerCase() == "dinner"
     ).slice(0,4);
     setDinner(newDinner)
-  }, []);
+  }, [recipe]);
 
   return (
     <div className="bg-green-100 w-screen pt-[5rem]">

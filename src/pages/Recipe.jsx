@@ -5,13 +5,15 @@ import RecipeCard from "../components/RecipeCard";
 import { DataRecipe } from "../ContaxtApi/DataContext";
 
 function Recipe() {
-  const { recipe } = useContext(DataRecipe);
+  const { recipe, setRecipes } = useContext(DataRecipe);
   const [AllRecipe, setAllRecipe] = useState([]);
 
   useEffect(() => {
-    const newList = recipe.sort((a, b) => b.reviewCount - a.reviewCount);
-    setAllRecipe(newList);
-  }, []);
+    if(recipe.length > 0) {
+      const newList = recipe.sort((a, b) => b.reviewCount - a.reviewCount);
+      setAllRecipe(newList);
+    }
+  }, [recipe]);
   return (
     <div className="pt-[5rem]">
       <div>
@@ -34,7 +36,13 @@ function Recipe() {
         </div>
         <div className="pb-20 flex justify-center flex-wrap gap-2">
           {AllRecipe.map((item) => (
-            <RecipeCard id = {item.id} name = {item.name} image = {item.image} reviews = {item.reviewCount} average = {item.rating}/>
+            <RecipeCard
+              id={item.id}
+              name={item.name}
+              image={item.image}
+              reviews={item.reviewCount}
+              average={item.rating}
+            />
           ))}
         </div>
       </div>

@@ -3,17 +3,24 @@ import RecipeTop from "../components/RecipeTop";
 import image from "../assets/trophy1.png";
 import RecipeCard from "../components/RecipeCard";
 import { DataRecipe } from "../ContaxtApi/DataContext";
+import Footer from "../components/Footer";
 
 function Recipe() {
   const { recipe, setRecipes } = useContext(DataRecipe);
   const [AllRecipe, setAllRecipe] = useState([]);
+  const [recipeSort, setrecipeSort] = useState(true)
 
   useEffect(() => {
-    if(recipe.length > 0) {
+    if (recipe.length > 0) {
       const newList = recipe.sort((a, b) => b.reviewCount - a.reviewCount);
-      setAllRecipe(newList);
+      recipeSort ? setAllRecipe(newList.slice(0, 9)) : setAllRecipe(newList);
     }
-  }, [recipe]);
+  }, [recipe, recipeSort]);
+
+  const handleClick = () => {
+    recipeSort ? setrecipeSort(false) : setrecipeSort(true)
+  }
+
   return (
     <div className="pt-[5rem]">
       <div>
@@ -34,7 +41,7 @@ function Recipe() {
             </p>
           </div>
         </div>
-        <div className="pb-20 flex justify-center flex-wrap gap-2">
+        <div className="pb-10 flex justify-center flex-wrap gap-2">
           {AllRecipe.map((item) => (
             <RecipeCard
               id={item.id}
@@ -45,7 +52,13 @@ function Recipe() {
             />
           ))}
         </div>
+        <div className="text-center w-full pb-10">
+          <button className="px-4 py-2 min-w-[30%] bg-green-500 text-green-100 font-bold text-lg cursor-pointer hover:scale-101 hover:bg-green-400 transition-all duration-300" onClick={()=> handleClick()}>
+            <span className="mr-2 text-xl">{recipeSort ? "+" : "-"}</span>{recipeSort ? "VIEW ALL RECIPES" : "VIEW LESS RECIPE"}
+          </button>
+        </div>
       </div>
+      <Footer />
     </div>
   );
 }

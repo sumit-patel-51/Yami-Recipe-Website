@@ -5,6 +5,7 @@ import breack from "../assets/breackfast.png";
 import lunchm from "../assets/lunch.png";
 import dinnerm from "../assets/dinner.svg";
 import { DataRecipe } from "../ContaxtApi/DataContext";
+import Footer from "../components/Footer";
 
 function StartHere() {
   const { recipe } = useContext(DataRecipe);
@@ -105,6 +106,7 @@ function StartHere() {
           ))}
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

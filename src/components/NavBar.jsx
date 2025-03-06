@@ -15,6 +15,11 @@ function NavBar() {
     navigate("/")
     window.scrollTo({top:0, behavior:"smooth"})
   }
+
+  const linkClick = () => {
+    window.scrollTo({top:0})
+  }
+
   return (
     <>
       <div className="fixed flex items-center px-5 md:px-20 justify-between top-0 bg-white w-full h-[5rem] shadow-lg z-40">
@@ -22,13 +27,13 @@ function NavBar() {
           <div className="text-2xl cursor-pointer" onClick={() => handleClick()}>Yami <span className="text-green-400 border-2 px-2 py-1 font-mono font-semibold">Recipe</span></div>
         </div>
         <div className={`nav-link md:flex md:text-center gap-10 md:translate-0 font-bold text-sm ${menu ? "translate-0" : "translate-x-[-100%]"} duration-300`}>
-          <Link to="/" className="hover:text-green-400">
+          <Link to="/" className="hover:text-green-400" onClick={()=> linkClick()}>
             HOME
           </Link>
-          <Link to="/recipe" className="hover:text-green-400">
+          <Link to="/recipe" className="hover:text-green-400" onClick={()=> linkClick()}>
             RECIPES
           </Link>
-          <Link to="/starthere" className="hover:text-green-400">
+          <Link to="/starthere" className="hover:text-green-400" onClick={()=> linkClick()}>
             START HEARE
           </Link>
         </div>

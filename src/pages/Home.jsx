@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { DataRecipe } from "../ContaxtApi/DataContext";
 import Cards from "../components/Cards";
+import Footer from '../components/Footer'
 
 function Home() {
   const { recipe, setRecipes } = useContext(DataRecipe);
@@ -14,6 +15,7 @@ function Home() {
         </div>
         <Cards />
       </div>
+      <Footer />
     </>
   );
 }

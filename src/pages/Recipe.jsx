@@ -4,17 +4,22 @@ import image from "../assets/trophy1.png";
 import RecipeCard from "../components/RecipeCard";
 import { DataRecipe } from "../ContaxtApi/DataContext";
 import Footer from "../components/Footer";
+import LoadingImage from "../components/LoadingImage";
 
 function Recipe() {
   const { recipe, setRecipes } = useContext(DataRecipe);
   const [AllRecipe, setAllRecipe] = useState([]);
   const [recipeSort, setrecipeSort] = useState(true)
+    const [imageLoad, setimageLoad] = useState(true);
 
   useEffect(() => {
     if (recipe.length > 0) {
       const newList = recipe.sort((a, b) => b.reviewCount - a.reviewCount);
       recipeSort ? setAllRecipe(newList.slice(0, 9)) : setAllRecipe(newList);
     }
+    setTimeout(() => {
+      setimageLoad(false);
+    },1000);
   }, [recipe, recipeSort]);
 
   const handleClick = () => {
@@ -22,7 +27,9 @@ function Recipe() {
   }
 
   return (
-    <div className="pt-[5rem]">
+    <>
+    {imageLoad && <LoadingImage />}
+    {!imageLoad && <div className="pt-[5rem]">
       <div>
         <RecipeTop />
       </div>
@@ -59,7 +66,8 @@ function Recipe() {
         </div>
       </div>
       <Footer />
-    </div>
+    </div>}
+    </>
   );
 }
 

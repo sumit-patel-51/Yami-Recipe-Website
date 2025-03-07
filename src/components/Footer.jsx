@@ -32,7 +32,7 @@ function Footer() {
             <input
               type="email"
               placeholder="Enter your email"
-              className="bg-green-200/30 text-white outline-0 text-center p-1 hover:shadow-md shadow-green-900 duration-150"
+              className="w-[70vw] md:w-[30vw] bg-green-200/30 text-white outline-0 text-center p-1 hover:shadow-md shadow-green-900 duration-150"
             />
             <button className="border-2 p-[2.8px] rounded-sm cursor-pointer hover:shadow-md shadow-green-900 duration-150">
               SING UP

@@ -14,10 +14,10 @@ function SearchCard(props) {
     setSearchBar(true)
     if (location.pathname.startsWith("/searchRecipe/")) {
         navigeter(`/recipe/${props.id}`);
-        window.scrollTo(top = 0)
+        window.scrollTo({top : 0})
       } else {
         navigeter(`/searchRecipe/${props.id}`);
-        window.scrollTo(top = 0)
+        window.scrollTo({top:0})
       }
 }
 

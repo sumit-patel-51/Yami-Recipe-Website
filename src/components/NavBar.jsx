@@ -18,6 +18,7 @@ function NavBar() {
 
   const linkClick = () => {
     window.scrollTo({top:0})
+    setMenu(false)
   }
 
   return (
@@ -39,12 +40,12 @@ function NavBar() {
         </div>
         <div className="flex gap-5">
           <button
-            className="p-4 rounded-4xl shadow-lg cursor-pointer text-green-400 font-bold"
+            className="p-4 rounded-4xl shadow-lg cursor-pointer text-green-400 font-bold hover:scale-110 duration-200"
             onClick={() => {setSearchBar(false); window.scrollTo({top:0})}}
           >
             <CiSearch className="text-2xl" />
           </button>
-          <button className="flex md:hidden items-center p-4 rounded-4xl shadow-lg cursor-pointer text-green-400 font-extrabold" onClick={()=> menu ? setMenu(false) : setMenu(true)}>
+          <button className="flex md:hidden items-center p-4 rounded-4xl shadow-lg cursor-pointer text-green-400 font-extrabold hover:scale-110 duration-200" onClick={()=> menu ? setMenu(false) : setMenu(true)}>
             {menu ? <RxCross1 className="text-xl"/> : <CiMenuFries className="text-xl" />}
           </button>
         </div>

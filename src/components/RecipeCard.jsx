@@ -4,7 +4,7 @@ import image45 from "../assets/4.5star.png";
 import { useNavigate } from "react-router-dom";
 function RecipeCard(props) {
   const [image, setImage] = useState("");
-  const navigator = useNavigate()
+  const navigator = useNavigate();
 
   useEffect(() => {
     if (props.average > 4 && props.average < 5) {
@@ -17,17 +17,18 @@ function RecipeCard(props) {
   const handleClick = (id) => {
     navigator(`/recipe/${id}`);
     window.scrollTo({ top: 0 });
-  }
+  };
 
   return (
     <div
       className="flex flex-col grow... max-w-[45%] md:max-w-[25rem] bg-white h-5rem md:flex-row overflow-hidden shadow-lg relative cursor-pointer"
       key={props.id}
-     onClick={()=> handleClick(props.id)}>
+      onClick={() => handleClick(props.id)}
+    >
       <div className="w-full md:w-[35%] overflow-hidden">
         <img
           src={props.image}
-          alt="Image Not Found"
+          alt="Image"
           className="w-full h-full md:h-[100%] object-cover hover:scale-105 transition all duration-200"
         />
       </div>

@@ -2,17 +2,22 @@ import React, { useContext, useEffect, useState } from "react";
 import { DataRecipe } from "../ContaxtApi/DataContext";
 import { FaStar } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
-import LoadingImage from "./LoadingImage";
+import LoadingImage from "../components/LoadingImage";
 
 function Cards() {
   const { recipe, setRecipes } = useContext(DataRecipe);
   const navigoter = useNavigate();
   const [loading, setLoading] = useState(true); // New loading state
+  const [imageLoad, setimageLoad] = useState(true);
 
   useEffect(() => {
     if (recipe.length > 0) {
       setLoading(false); // Stop loading when recipes are fetched
     }
+
+    setTimeout(() => {
+      setimageLoad(false);
+    }, 2000);
   }, [recipe]);
 
   if (loading) {
@@ -38,7 +43,8 @@ function Cards() {
         >
           <div className="overflow-hidden w-[100%] ">
             <div className="relative overflow-hidden w-full h-[250px]">
-              <LoadingImage src={item.image}/>
+              {imageLoad && <LoadingImage />}
+              {!imageLoad && <img src={item.image} />}
             </div>
           </div>
           <div className="flex justify-between items-center p-2 w-full">
@@ -48,6 +54,14 @@ function Cards() {
             <span className="flex items-center gap-1 pl-3 pr-2 pt-1 pb-1 bg-green-400 text-white rounded-lg">
               {item.rating}
               <FaStar />
+            </span>
+          </div>
+          <div className="flex justify-between items-center px-2 w-full">
+            <h2 className="w-[70%] overflow-hidden truncate">
+            Difficulty : {item.difficulty}
+            </h2>
+            <span className="flex items-center gap-1 pl-3 pr-2 pt-1 pb-1">
+              {item.cuisine}
             </span>
           </div>
           <button

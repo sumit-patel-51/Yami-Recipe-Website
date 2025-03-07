@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import RecipeTop from "../components/RecipeTop";
-import image from "../assets/trophy1.png";
+import image from "../assets/trophy.jpg";
 import RecipeCard from "../components/RecipeCard";
 import { DataRecipe } from "../ContaxtApi/DataContext";
 import Footer from "../components/Footer";
@@ -36,7 +36,7 @@ function Recipe() {
       <div>
         <div className="pt-15 md:pt-20 pb-5 md:pb-10">
           <div className="flex items-center justify-center">
-            <img src={image} alt="" className="w-[5rem] bg-none" />{" "}
+            <img src={image} alt="" className="w-[5rem] bg-none mix-blend-multiply" />{" "}
             <span className="text-2xl font-bold text-green-400">
               TOP RATED RECIPES
             </span>

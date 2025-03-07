@@ -56,7 +56,8 @@ function SearchCardRecipe() {
               <h1 className="text-3xl font-bold">{getByIdData.name}</h1>
               <p>{getByIdData.cuisine}</p>
               <p>Difficulty : {getByIdData.difficulty}</p>
-              <p>Cookie Time : {getByIdData.cookTimeMinutes} Minutes</p>
+              {getByIdData.cookTimeMinutes > 0 ? <p>Cookie Time : {getByIdData.cookTimeMinutes} Minutes</p>: null}
+              {getByIdData.prepTimeMinutes > 0 ? <p>Preper Time : {getByIdData.prepTimeMinutes} Minutes</p> : null}
               <h1 className="text-2xl pt-4">Ingredients</h1>
               <p>{getByIdData.ingredients}</p>
               <h1 className="text-2xl pt-4">Instructions</h1>
@@ -90,7 +91,8 @@ function SearchCardRecipe() {
                     <h1 className="text-3xl font-bold">{item.name}</h1>
                     <p>{item.cuisine}</p>
                     <p>Difficulty : {item.difficulty}</p>
-                    <p>Cookie Time : {item.cookTimeMinutes} Minutes</p>
+                    {item.cookTimeMinutes > 0 ? <p>Cookie Time : {item.cookTimeMinutes} Minutes</p>: null}
+                    {item.prepTimeMinutes > 0 ? <p>Preper Time : {item.prepTimeMinutes} Minutes</p> : null}
                     <h1 className="text-2xl pt-4">Ingredients</h1>
                     <p>{item.ingredients}</p>
                     <h1 className="text-2xl pt-4">Instructions</h1>
